@@ -13,6 +13,17 @@
 >
 > Component source lives in `apps/www/registry/elevenlabs-ui/`.
 >
+> **Style playground** (`playground/index.html`)
+>
+> Edit colors (light and dark), font and corner radius against live component previews, then commit
+> the result to `apps/www/styles/tokens.css`. Every color, radius and font token lives in that file.
+>
+> - One-time setup: in GitHub, open Settings → Pages and set Source to **GitHub Actions**. The
+>   `Playground` workflow then publishes it at https://ago60hz.github.io/sauce-design-system/.
+> - To save, click the GitHub icon in the playground and paste a fine-grained token with access to this
+>   repo only and **Contents: Read and write**. The token stays in your browser.
+> - After changing components, run `pnpm --filter=www playground:build` to refresh the previews.
+>
 > **Still pointing at ElevenLabs infrastructure** (change before shipping under your own brand):
 > - `ui/orb.tsx` loads its texture from ElevenLabs' CDN (`storage.googleapis.com/eleven-public-cdn`).
 > - Blocks in `registry/__index__.tsx` declare dependencies on `https://ui.elevenlabs.io/r/*.json`.
