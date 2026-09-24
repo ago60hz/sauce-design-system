@@ -23,7 +23,8 @@ export async function StarsCount() {
   const data = await fetch("https://api.github.com/repos/elevenlabs/ui", {
     next: { revalidate: 86400 }, // Cache for 1 day (86400 seconds)
   })
-  const json = await data.json()
+  const json = await data.json().catch(() => null)
+  if (typeof json?.stargazers_count !== "number") return null
 
   return (
     <span className="text-muted-foreground w-8 text-xs tabular-nums">

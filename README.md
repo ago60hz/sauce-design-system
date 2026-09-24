@@ -1,3 +1,24 @@
+> **Sauce Design System** — forked from [elevenlabs/ui](https://github.com/elevenlabs/ui)
+> at commit `23c31bd` (MIT, © Eleven Labs Inc.; see [LICENSE.md](LICENSE.md)).
+> The first commit in this repo is an unmodified copy; later commits are local changes.
+>
+> **Run locally**
+>
+> ```bash
+> pnpm install
+> cp apps/www/.env.example apps/www/.env.local
+> pnpm --filter=www dev          # docs + component previews at http://localhost:4000
+> pnpm --filter=www registry:build  # regenerates apps/www/public/r/*.json
+> ```
+>
+> Component source lives in `apps/www/registry/elevenlabs-ui/`.
+>
+> **Still pointing at ElevenLabs infrastructure** (change before shipping under your own brand):
+> - `ui/orb.tsx` loads its texture from ElevenLabs' CDN (`storage.googleapis.com/eleven-public-cdn`).
+> - Blocks in `registry/__index__.tsx` declare dependencies on `https://ui.elevenlabs.io/r/*.json`.
+> - Voice-agent and transcription blocks need an ElevenLabs API key / agent ID (paid ElevenLabs usage).
+> - Logos, name and links (`lib/config.ts`, `public/`) are ElevenLabs trademarks. The MIT license covers the code, not the brand.
+
 ![elevenlabs-ui](https://github.com/user-attachments/assets/a5b73bfc-b0a3-4b4e-8915-f90a086c5723)
 
 # II ElevenLabs UI
