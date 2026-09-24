@@ -1,8 +1,16 @@
 import { createMDX } from "fumadocs-mdx/next"
 
+const vercelUrl =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
+  env: {
+    NEXT_PUBLIC_APP_URL:
+      process.env.NEXT_PUBLIC_APP_URL ||
+      (vercelUrl ? `https://${vercelUrl}` : "http://localhost:4000"),
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -86,6 +94,10 @@ const nextConfig = {
   },
   rewrites() {
     return [
+      {
+        source: "/playground",
+        destination: "/playground/index.html",
+      },
       {
         source: "/docs/:path*.md",
         destination: "/llm/:path*",

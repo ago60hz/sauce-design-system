@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --input-type=module -e \"import('fumadocs-mdx/next').then((m) => m.start(false, 'source.config.ts', '.source'))\" && next dev --turbopack --port 4000",
-    "build": "next build",
+    "dev": "node -e \"require('fs').cpSync('../../playground/index.html', 'public/playground/index.html')\" && node --input-type=module -e \"import('fumadocs-mdx/next').then((m) => m.start(false, 'source.config.ts', '.source'))\" && next dev --turbopack --port 4000",
+    "build": "node -e \"require('fs').cpSync('../../playground/index.html', 'public/playground/index.html')\" && next build",
     "start": "next start --port 4000",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

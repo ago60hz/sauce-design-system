@@ -13,15 +13,19 @@
 >
 > Component source lives in `apps/www/registry/elevenlabs-ui/`.
 >
-> **Style playground** (`playground/index.html`)
+> **Deploy (Vercel)**
+>
+> Import the repo at vercel.com/new, set **Root Directory** to `apps/www`, and deploy. No environment
+> variables are required; the site URL falls back to the Vercel address. Every push redeploys.
+>
+> **Style playground** (`/playground` on the deployed site, source in `playground/index.html`)
 >
 > Edit colors (light and dark), font and corner radius against live component previews, then commit
 > the result to `apps/www/styles/tokens.css`. Every color, radius and font token lives in that file.
 >
-> - One-time setup: in GitHub, open Settings → Pages and set Source to **GitHub Actions**. The
->   `Playground` workflow then publishes it at https://ago60hz.github.io/sauce-design-system/.
 > - To save, click the GitHub icon in the playground and paste a fine-grained token with access to this
 >   repo only and **Contents: Read and write**. The token stays in your browser.
+> - Each save is a commit, so Vercel redeploys the docs site with the new tokens a minute or two later.
 > - After changing components, run `pnpm --filter=www playground:build` to refresh the previews.
 >
 > **Still pointing at ElevenLabs infrastructure** (change before shipping under your own brand):
