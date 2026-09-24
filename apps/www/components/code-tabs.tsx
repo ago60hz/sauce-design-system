@@ -1,0 +1,24 @@
+"use client"
+
+import * as React from "react"
+
+import { useConfig } from "@/hooks/use-config"
+import { Tabs } from "@/registry/elevenlabs-ui/ui/tabs"
+
+export function CodeTabs({ children }: React.ComponentProps<typeof Tabs>) {
+  const [config, setConfig] = useConfig()
+
+  const installationType = config.installationType || "cli"
+
+  return (
+    <Tabs
+      value={installationType}
+      onValueChange={(value) =>
+        setConfig({ ...config, installationType: value as "cli" | "manual" })
+      }
+      className="relative mt-6 w-full"
+    >
+      {children}
+    </Tabs>
+  )
+}
